@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="120dp"
+    android:layout_marginEnd="120dp"
+    android:layout_marginBottom="5dp"
+    android:elevation="10dp"
+    app:cardCornerRadius="20dp"
+    android:backgroundTint="#D58AB8D6">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_margin="10dp"
+        android:textSize="21sp"
+        android:text="@string/currency_to_rub"/>
+    <TextView
+        android:id="@+id/tvValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:text = "0.00001"/>
+
+    <TextView
+        android:id="@+id/tvLastUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:layout_gravity="bottom|end"
+        android:text="@string/the_time_of_the_last_update"/>
+
+</androidx.cardview.widget.CardView>

@@ -1,5 +1,9 @@
 package com.niko.currencyappp.domain.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Valute(
     val ID: String,
     val NumCode: String,
@@ -9,4 +13,4 @@ data class Valute(
     val Value: Double,
     val Previous: Double,
     val Date: String?
-)
+) : Parcelable

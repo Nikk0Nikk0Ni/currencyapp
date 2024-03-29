@@ -1,8 +1,10 @@
 package com.niko.currencyappp.presentation.fragments
 
+import android.content.pm.ActivityInfo
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -51,6 +53,16 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+    }
+
+    override fun onPause() {
+        super.onPause()
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+    }
+
     private fun checkNetwork() {
         viewModel.isNetworkAvailable.observe(viewLifecycleOwner) {
             if (it) {
@@ -65,7 +77,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
         super.onViewCreated(view, savedInstanceState)
         val rotateAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.rotate_anim)
         binding.imageView.startAnimation(rotateAnimation)
-        Handler().postDelayed({ viewModel.checkConnection() }, 3000)
+        Handler(Looper.getMainLooper()).postDelayed({ viewModel.checkConnection() }, 3000)
     }
 
 }
