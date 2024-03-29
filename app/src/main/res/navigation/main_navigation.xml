@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.niko.currencyappp.presentation.fragments.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_currencyFragment"
+            app:destination="@id/currencyFragment"/>
+        <action
+            android:id="@+id/action_splashFragment_to_errorFragment"
+            app:destination="@id/errorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/currencyFragment"
+        android:name="com.niko.currencyappp.presentation.fragments.CurrencyFragment"
+        android:label="CurrencyFragment" >
+        <action
+            android:id="@+id/action_currencyFragment_to_errorFragment"
+            app:destination="@id/errorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.niko.currencyappp.presentation.fragments.ErrorFragment"
+        android:label="ErrorFragment" >
+        <action
+            android:id="@+id/action_errorFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
+</navigation>

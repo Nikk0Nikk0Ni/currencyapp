@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CurrencyAppp</string>
+    <string name="currency_to_rub">%s / RUB</string>
+    <string name="the_time_of_the_last_update">Время последнего обновления: %s</string>
+    <string name="splash_app_name">Currency \n\t\t\t\t\t\t Application</string>
+    <string name="internet_error">Отсутствует соединение с инетернетом</string>
+    <string name="retry">Повторить попытку</string>
+</resources>
