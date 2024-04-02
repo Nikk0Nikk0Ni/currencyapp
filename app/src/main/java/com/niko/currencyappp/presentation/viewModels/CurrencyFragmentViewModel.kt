@@ -19,14 +19,6 @@ import kotlinx.coroutines.launch
 
 class CurrencyFragmentViewModel(private val application: Application) : ViewModel() {
 
-    init {
-        CoroutineScope(Dispatchers.IO).launch {
-            updateListUseCase.updateList()
-            _isLoading.postValue(true)
-        }
-        startTimer()
-    }
-
     private val repository = ListCurrencyRepositoryImpl()
     private val getListUseCase = GetListUseCase(repository)
     private val updateListUseCase = UpdateListUseCase(repository)
@@ -35,7 +27,7 @@ class CurrencyFragmentViewModel(private val application: Application) : ViewMode
         get() = _isNetworkAvailable
     private var timer: CountDownTimer? = null
 
-    private val _isLoading = MutableLiveData<Boolean>(false)
+    private val _isLoading = MutableLiveData<Boolean>()
     val isLoading : LiveData<Boolean>
         get() = _isLoading
 
@@ -47,6 +39,11 @@ class CurrencyFragmentViewModel(private val application: Application) : ViewMode
     }
 
     fun getList(): LiveData<List<Valute>> {
+        viewModelScope.launch {
+            updateListUseCase.updateList()
+            _isLoading.postValue(true)
+        }
+        startTimer()
         return getListUseCase.getList()
     }
 
@@ -57,6 +54,7 @@ class CurrencyFragmentViewModel(private val application: Application) : ViewMode
                 if (isNetworkAvailable.value == true) {
                     viewModelScope.launch {
                         updateListUseCase.updateList()
+                        Log.e("AUF","1")
                     }
                 }
             }
