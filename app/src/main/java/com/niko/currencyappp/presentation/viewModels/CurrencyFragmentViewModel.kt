@@ -35,7 +35,7 @@ class CurrencyFragmentViewModel(private val application: Application) : ViewMode
         get() = _isNetworkAvailable
     private var timer: CountDownTimer? = null
 
-    private val _isLoading = MutableLiveData<Boolean>()
+    private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading : LiveData<Boolean>
         get() = _isLoading
 
